@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    hello here
+    {{tickets}}
   </div>
 </template>
 
@@ -8,27 +8,17 @@
 import axios from 'axios'
 
 export default {
-  name: 'home',
+  name: 'Home',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js PWA',
-      // info: {
-      //   "ticket": {
-      //     "subject":  "My printer is on fire!",
-      //     "comment":  { "body": "The smoke is very colorful." },
-      //     "priority": "urgent"
-      //   }
-      // }
+      tickets : null
     }
   },
   methods: {
     fetch () {
       axios.get('/getTickets').then(response => {
-        console.log(response)
+        this.tickets = response.data.data
       })
-      // axios.get('/api/v2/tickets.json').then(response => {
-      //   console.log(response)
-      // })
     }
   },
   created () {

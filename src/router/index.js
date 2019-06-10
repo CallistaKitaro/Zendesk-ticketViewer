@@ -1,15 +1,22 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '@/components/Home'
+import ErrorPage from '@/components/ErrorPage'
 
 Vue.use(Router)
 
 export default new Router({
+  mode: 'history',
   routes: [
     {
       path: '/',
-      name: 'home',
+      name: 'Home',
       component: Home
-    }
+    },
+    {
+      path: '/Error',
+      name: 'ErrorPage',
+      component: ErrorPage
+    },
   ]
 })

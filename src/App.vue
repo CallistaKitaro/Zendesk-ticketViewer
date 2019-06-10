@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <header>
-      <span>Vue.js PWA</span>
+      <span>Zendesk Ticket Viewer</span>
     </header>
     <main>
       <router-view></router-view>

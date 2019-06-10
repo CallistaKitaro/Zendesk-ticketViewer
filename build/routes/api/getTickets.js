@@ -1,24 +1,29 @@
-// const fetch = require('node-fetch');
+// Use external config file to get authentication information
+require('dotenv').config(); 
+
 const axios = require('axios');
 
 module.exports = (app) => {
+
     app.get( '/getTickets', (req, res) => {
 
-		const baseUrl = 'https://callista.zendesk.com/api/v2/tickets.json';	
+		const apiURL = `${process.env.BASE_URL}/api/v2/tickets.json`;	
 
-		axios.get(baseUrl, {
+		axios.get(apiURL, {
             headers: { 
-                'Authorization': 'Basic ',
+                'Authorization': `Basic ${process.env.AUTHENTICATION}`,
                 "Accept": "application/json",
                 "Content-Type": "application/json"
             }
         })
+        // .then(res => res.redirect('/error')) 
         .then(res => res.data) 
 		.then(data => {
-			res.send({ data });
+            // Send requested data to frontend using API
+			res.send({ data }); 
 		})
 		.catch(err => {
-            console.log('err: ', err);
+            console.log(err);
 		});
 
 	})
