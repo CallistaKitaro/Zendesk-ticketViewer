@@ -17,7 +17,8 @@ export default {
   methods: {
     fetch () {
       axios.get('/getTickets').then(response => {
-        this.tickets = response.data.data
+        console.log('response: ', response);
+        // this.tickets = response.data.data
       })
     }
   },

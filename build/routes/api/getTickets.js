@@ -5,26 +5,27 @@ const axios = require('axios');
 
 module.exports = (app) => {
 
-    app.get( '/getTickets', (req, res) => {
+    app.get( '/getTickets', ( req, res) => {
 
 		const apiURL = `${process.env.BASE_URL}/api/v2/tickets.json`;	
 
 		axios.get(apiURL, {
             headers: { 
-                'Authorization': `Basic ${process.env.AUTHENTICATION}`,
-                "Accept": "application/json",
-                "Content-Type": "application/json"
+                'Authorization': `Basic ${process.env.AUTHENTICATION}`
             }
         })
-        // .then(res => res.redirect('/error')) 
-        .then(res => res.data) 
-		.then(data => {
-            // Send requested data to frontend using API
-			res.send({ data }); 
-		})
-		.catch(err => {
-            console.log(err);
-		});
-
+        .then(result => 
+            res.send({ 
+                'status' : result.status,
+                'data'   : result.data 
+            })
+        )
+        .catch( err => 
+            res.send({
+                'status'     : err.response.status,
+                'statusText' : err.response.statusText
+            })
+        )
+        
 	})
 }

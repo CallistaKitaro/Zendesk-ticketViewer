@@ -27,6 +27,7 @@ const proxyTable = config.dev.proxyTable
 const app = express()
 const compiler = webpack(webpackConfig)
 
+// Adding API routes
 require('./routes')(app);
 
 const devMiddleware = require('webpack-dev-middleware')(compiler, {
