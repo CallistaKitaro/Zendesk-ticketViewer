@@ -27,5 +27,6 @@ export default {
 <style>
 .error{
   margin-top: 100px;
+  text-align: center;
 }
 </style>

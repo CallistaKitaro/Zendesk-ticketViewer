@@ -7,12 +7,12 @@
 
     <div v-else>
       <div class="tickets-view" v-if="tickets">
-        <div class="ticket-lists d-inline-block align-top">
+        <div class="ticket-lists align-top" :class="[ticketDetail ? 'd-inline-block w-left' : '']">
           <viewList :tickets="tickets"/>
         </div>
 
-        <div class="ticket-detail d-inline-block align-top">
-          yakitori
+        <div v-if="ticketDetail" class="ticket-detail align-top" :class="[ticketDetail ? 'd-inline-block w-right' : '']">
+          <viewDetail :ticketDetail="ticketDetail"/>
         </div>
       </div>
 
@@ -20,7 +20,6 @@
         <error :errorType="errorType"/>
       </div>
     </div>
-
     
   </div>
 </template>
@@ -30,19 +29,22 @@ import axios from 'axios'
 import spinner from 'vue-simple-spinner'
 import error from './ErrorPage'
 import viewList from './ViewList'
+import viewDetail from './ViewDetail'
 
 export default {
   name: 'Home',
   components: {
     spinner,
     viewList,
+    viewDetail,
     error
   },
   data () {
     return {
       loading: false,
+      errorType : null,
       tickets : null,
-      errorType : null
+      ticketDetail: null,
     }
   },
   methods: {
@@ -101,5 +103,22 @@ a {
 
 #spinner{
   margin-top : 200px;
+}
+.tickets-view{
+  width: 100%
+}
+.w-left{
+  width: 55%
+}
+.w-right{
+  width: 44%
+}
+
+.capitalize{
+  text-transform: lowercase;
+  display: inline-block;
+}
+.capitalize::first-letter{
+  text-transform: uppercase;
 }
 </style>

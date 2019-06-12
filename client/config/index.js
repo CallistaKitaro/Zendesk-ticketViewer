@@ -31,7 +31,7 @@ module.exports = {
     assetsPublicPath: '/',
     proxyTable: {
       '/api': {
-        target: 'http://localhost:5000',  // to run on the same server as backend
+        target: 'http://localhost:5000/',  // to run on the same server as backend
         changeOrigin: true
       }
     },

@@ -1,6 +1,6 @@
 # Zendesk Ticket Viewer
 
-> A Vue.js project
+> Request tickets from Zendesk account and display on a web application
 
 ## Running Back-End Server
 

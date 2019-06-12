@@ -17,6 +17,9 @@
                     <template slot="created_at" slot-scope="created_at" :id="created_at.value">
                         {{ created_at.value | moment( "Do MMMM YYYY") }}
                     </template>
+                    <template slot="subject" slot-scope="subject" :id="subject.value">
+                        <span class="capitalize">{{ subject.value }} </span>
+                    </template>
 
                     <template slot="action" slot-scope="action" :id="action.item.id">
                         <button class="btn btn-primary" @click="onEdit(action.item)">Details</button>
@@ -58,8 +61,8 @@ export default {
     },
     methods: { 
         // Open dialog box to edit the selected intervention
-        onEdit(interventionDetails) {
-            console.log('interventionDetails: ', interventionDetails);
+        onEdit(ticketDetails) {
+            this.$parent.ticketDetail = ticketDetails
         },
     },
     created() {
@@ -92,6 +95,7 @@ export default {
     vertical-align: middle;
 }
 #tickets_list_table > tbody tr td:nth-child(2){
+    padding-left: 15px;
     text-align: left;
 }
 #tickets_list_table thead tr > th[aria-colindex="1"]{

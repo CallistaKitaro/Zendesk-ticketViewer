@@ -35,7 +35,7 @@ header {
   color: #ffffff;
 }
 
-header span {
+header span{
   display: block;
   position: relative;
   font-size: 20px;
