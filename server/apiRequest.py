@@ -3,13 +3,14 @@ from requests.auth import HTTPBasicAuth
 
 from flask import Flask
 from flask_restful import Api, Resource, reqparse
-
+from flask_cors import CORS
 
 with open('./../config.json', 'r') as read:
     configuration_file = json.load(read)
 
 app = Flask(__name__)
 api = Api(app)
+cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
 
 class Tickets(Resource):
     def get(self):

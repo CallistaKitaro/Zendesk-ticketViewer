@@ -50,17 +50,20 @@ export default {
   methods: {
     // Request backend to make GET request from Zendesk and return results
     fetch () {
-      axios.get('/api').then(response => {
+      axios.get('http://localhost:5000/api').then(response => {
+
         // Check result sent from backend
         // GET request from Zendesk is successful
         if(response.data.status === 200){
           this.tickets = response.data.data
         }
+
         // GET request from Zendesk fails
         else{
           this.errorType = response.data
         }
       })
+      
       // Error from backend issue
       .catch(err => {
         this.errorType = {
@@ -121,4 +124,5 @@ a {
 .capitalize::first-letter{
   text-transform: uppercase;
 }
+
 </style>

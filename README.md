@@ -9,9 +9,10 @@ First, ensure that you have Python3 installed in your device.
 Navigate to the server folder and run these commands
 
 ``` bash
-# install request and flask library
+# install request, flask and cors library
 pip install requests
 pip install flask-restful
+pip install Flask-Cors
 
 # Run flask server
 python apiRequest.py

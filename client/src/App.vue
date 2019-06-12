@@ -45,4 +45,9 @@ header span{
   box-sizing: border-box;
   padding-top: 16px;
 }
+
+.error{
+  margin-top: 100px;
+  text-align: center;
+}
 </style>
