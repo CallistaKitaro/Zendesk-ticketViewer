@@ -6,8 +6,14 @@
     </div>
 
     <div v-else>
-      <div v-if="tickets">
-        {{tickets}}
+      <div class="tickets-view" v-if="tickets">
+        <div class="ticket-lists d-inline-block align-top">
+          <viewList :tickets="tickets"/>
+        </div>
+
+        <div class="ticket-detail d-inline-block align-top">
+          yakitori
+        </div>
       </div>
 
       <div v-else>
@@ -23,11 +29,13 @@
 import axios from 'axios'
 import spinner from 'vue-simple-spinner'
 import error from './ErrorPage'
+import viewList from './ViewList'
 
 export default {
   name: 'Home',
   components: {
     spinner,
+    viewList,
     error
   },
   data () {
