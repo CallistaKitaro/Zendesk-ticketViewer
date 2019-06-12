@@ -24,7 +24,9 @@ class Tickets(Resource):
             if (response.status_code != 200):
                 apiURL = None
                 result = {
-                    "status" : response.status_code
+                    "zendesk" : True,
+                    "status" : response.status_code,
+                    "statusText" : response.reason
                 }
                 return result
 

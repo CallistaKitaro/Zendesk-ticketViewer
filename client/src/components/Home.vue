@@ -11,7 +11,7 @@
       </div>
 
       <div v-else>
-        <error />
+        <error :errorType="errorType"/>
       </div>
     </div>
 
@@ -48,13 +48,16 @@ export default {
         }
         // GET request from Zendesk fails
         else{
-          console.log();
+          this.errorType = response.data
         }
       })
       // Error from backend issue
       .catch(err => {
-        console.log( err.response.status );
-        console.log( err.response.statusText );
+        this.errorType = {
+          "zendesk" : false,
+          "status" : err.response.status,
+          "statusText" : err.response.statusText,
+        }
       })
       // Stop loading spinner
       .finally(() => {
@@ -86,5 +89,9 @@ li {
 
 a {
   color: #35495E;
+}
+
+#spinner{
+  margin-top : 200px;
 }
 </style>
