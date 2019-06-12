@@ -4,7 +4,9 @@
 
 ## Running Back-End Server
 
-First, ensure that you have Python3 installed in your device.
+Pre-requisite:
+1. Ensure that you have Python3 installed in your device.
+2. Ensure that config.json file is in the root directory of the project.
 
 Navigate to the server folder and run these commands
 
@@ -18,7 +20,6 @@ pip install Flask-Cors
 python apiRequest.py
 
 ```
-
 
 
 ## Running Front-End Server
