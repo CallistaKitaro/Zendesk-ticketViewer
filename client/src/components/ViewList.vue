@@ -1,6 +1,6 @@
 <template>
     <div class="tickets_list_section">
-        <h3 class="mb-3">Total Tickets: {{tickets.length}}</h3>
+        <h3 id="count_tickets" class="mb-3">Total Tickets: {{tickets.length}}</h3>
         <b-row align-h="around" id="tickets_list_row">
             <b-col>
                 <b-table 
